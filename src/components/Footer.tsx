@@ -3,12 +3,13 @@ import { Instagram, Twitter } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-card border-t border-border">
+    <footer className="bg-card border-t border-gold/20">
       <div className="container-custom py-16 md:py-20">
+        <div className="divider-gold mb-12" />
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
           {/* Brand */}
           <div className="md:col-span-1">
-            <Link to="/" className="font-display text-2xl font-bold tracking-tight">
+            <Link to="/" className="font-display text-2xl font-bold tracking-tight hover:text-gold transition-colors">
               INFYTEE
             </Link>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
@@ -18,15 +19,15 @@ const Footer = () => {
 
           {/* Shop */}
           <div>
-            <h4 className="text-subhead mb-4">Shop</h4>
+            <h4 className="text-sm uppercase tracking-[0.2em] text-gold font-medium mb-4">Shop</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/shop" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/shop" className="text-sm text-muted-foreground hover:text-gold transition-colors">
                   All Products
                 </Link>
               </li>
               <li>
-                <Link to="/collections" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/collections" className="text-sm text-muted-foreground hover:text-gold transition-colors">
                   Collections
                 </Link>
               </li>
@@ -41,10 +42,10 @@ const Footer = () => {
 
           {/* Info */}
           <div>
-            <h4 className="text-subhead mb-4">Info</h4>
+            <h4 className="text-sm uppercase tracking-[0.2em] text-gold font-medium mb-4">Info</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/about" className="text-sm text-muted-foreground hover:text-gold transition-colors">
                   About Us
                 </Link>
               </li>
@@ -62,13 +63,13 @@ const Footer = () => {
 
           {/* Connect */}
           <div>
-            <h4 className="text-subhead mb-4">Connect</h4>
+            <h4 className="text-sm uppercase tracking-[0.2em] text-gold font-medium mb-4">Connect</h4>
             <div className="flex gap-4">
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 border border-border rounded-sm hover:bg-accent transition-colors"
+                className="p-2 border border-border rounded-sm hover:border-gold hover:text-gold transition-colors"
               >
                 <Instagram size={18} />
               </a>
@@ -76,7 +77,7 @@ const Footer = () => {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 border border-border rounded-sm hover:bg-accent transition-colors"
+                className="p-2 border border-border rounded-sm hover:border-gold hover:text-gold transition-colors"
               >
                 <Twitter size={18} />
               </a>
@@ -88,13 +89,13 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-16 pt-8 border-t border-gold/20 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-muted-foreground">
             © 2024 Infytee. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <span className="text-xs text-muted-foreground">Privacy Policy</span>
-            <span className="text-xs text-muted-foreground">Terms of Service</span>
+            <span className="text-xs text-muted-foreground hover:text-gold cursor-pointer transition-colors">Privacy Policy</span>
+            <span className="text-xs text-muted-foreground hover:text-gold cursor-pointer transition-colors">Terms of Service</span>
           </div>
         </div>
       </div>
