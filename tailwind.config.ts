@@ -47,6 +47,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          light: "hsl(var(--gold-light))",
+          dark: "hsl(var(--gold-dark))",
+          muted: "hsl(var(--gold-muted))",
+        },
         stone: "hsl(var(--stone))",
         cream: "hsl(var(--cream))",
         charcoal: "hsl(var(--charcoal))",
@@ -64,6 +70,7 @@ export default {
         soft: "var(--shadow-soft)",
         medium: "var(--shadow-medium)",
         hover: "var(--shadow-hover)",
+        gold: "var(--shadow-gold)",
       },
       keyframes: {
         "accordion-down": {

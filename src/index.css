@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    /* Infytee - Minimal Streetwear Palette */
+    /* Infytee - Minimal Streetwear Palette with Gold Accents */
     --background: 40 20% 98%;
     --foreground: 0 0% 8%;
 
@@ -37,6 +37,12 @@
 
     --radius: 0.25rem;
 
+    /* Gold Accent Colors */
+    --gold: 43 74% 49%;
+    --gold-light: 43 74% 65%;
+    --gold-dark: 43 74% 38%;
+    --gold-muted: 43 40% 70%;
+
     /* Custom Brand Colors */
     --stone: 30 8% 60%;
     --cream: 40 25% 94%;
@@ -46,6 +52,7 @@
     --shadow-soft: 0 4px 20px -4px hsl(0 0% 8% / 0.08);
     --shadow-medium: 0 8px 30px -6px hsl(0 0% 8% / 0.12);
     --shadow-hover: 0 12px 40px -8px hsl(0 0% 8% / 0.15);
+    --shadow-gold: 0 4px 20px -4px hsl(43 74% 49% / 0.25);
 
     /* Transitions */
     --transition-smooth: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -77,6 +84,12 @@
     --border: 0 0% 18%;
     --input: 0 0% 18%;
     --ring: 40 15% 85%;
+
+    /* Gold accents in dark mode */
+    --gold: 43 74% 55%;
+    --gold-light: 43 74% 70%;
+    --gold-dark: 43 74% 45%;
+    --gold-muted: 43 40% 50%;
   }
 }
 
@@ -123,6 +136,10 @@
     @apply inline-flex items-center justify-center px-8 py-3.5 bg-primary text-primary-foreground font-medium text-sm tracking-wide uppercase transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98];
   }
 
+  .btn-gold {
+    @apply inline-flex items-center justify-center px-8 py-3.5 bg-gold text-white font-medium text-sm tracking-wide uppercase transition-all duration-300 hover:bg-gold-dark hover:scale-[1.02] active:scale-[0.98] shadow-gold;
+  }
+
   .btn-secondary {
     @apply inline-flex items-center justify-center px-8 py-3.5 bg-transparent border border-foreground text-foreground font-medium text-sm tracking-wide uppercase transition-all duration-300 hover:bg-foreground hover:text-background;
   }
@@ -131,8 +148,16 @@
     @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium tracking-wide transition-all duration-300 hover:opacity-70;
   }
 
+  .btn-outline-gold {
+    @apply inline-flex items-center justify-center px-6 py-2.5 bg-transparent border border-gold text-gold font-medium text-sm tracking-wide uppercase transition-all duration-300 hover:bg-gold hover:text-white;
+  }
+
   .card-product {
-    @apply relative overflow-hidden bg-card;
+    @apply relative overflow-hidden bg-card transition-all duration-300;
+  }
+
+  .card-product:hover {
+    @apply shadow-medium;
   }
 
   .card-product-image {
@@ -141,6 +166,26 @@
 
   .link-underline {
     @apply relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-current after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
+  }
+
+  .link-gold {
+    @apply relative inline-block text-foreground transition-colors duration-300 hover:text-gold after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-px after:bottom-0 after:left-0 after:bg-gold after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
+  }
+
+  .divider-gold {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-gold/50 to-transparent;
+  }
+
+  .divider-gold-vertical {
+    @apply w-px h-full bg-gradient-to-b from-transparent via-gold/50 to-transparent;
+  }
+
+  .gold-accent {
+    @apply text-gold;
+  }
+
+  .gold-border {
+    @apply border-gold;
   }
 
   .fade-in {

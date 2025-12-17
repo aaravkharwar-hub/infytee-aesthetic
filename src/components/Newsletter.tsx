@@ -28,10 +28,11 @@ const Newsletter = () => {
           transition={{ duration: 0.6 }}
           className="max-w-2xl mx-auto text-center"
         >
-          <p className="text-subhead mb-4">Stay in the loop</p>
-          <h2 className="text-headline mb-6">
+          <p className="text-sm uppercase tracking-[0.2em] text-gold font-medium mb-4">Stay in the loop</p>
+          <h2 className="text-headline mb-4">
             Join the Infytee Community
           </h2>
+          <div className="divider-gold max-w-24 mx-auto mb-6" />
           <p className="text-muted-foreground mb-10">
             Be the first to know about new collections, exclusive drops, and members-only offers.
           </p>
@@ -42,10 +43,10 @@ const Newsletter = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
-              className="flex-1 px-5 py-3.5 bg-background border border-border text-sm placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors"
+              className="flex-1 px-5 py-3.5 bg-background border border-border text-sm placeholder:text-muted-foreground focus:outline-none focus:border-gold transition-colors"
               required
             />
-            <button type="submit" className="btn-primary gap-2">
+            <button type="submit" className="btn-gold gap-2">
               Subscribe
               <ArrowRight size={16} />
             </button>
