@@ -33,66 +33,53 @@ const ProductCard = ({ id, name, price, image, category, colors = [], sizes = []
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      whileHover={{ y: -8 }}
     >
       {/* Image Container */}
       <div className="relative aspect-square overflow-hidden bg-secondary">
-        <motion.img
+        <img
           src={image}
           alt={name}
-          className="w-full aspect-square object-cover"
-          animate={{ scale: isHovered ? 1.08 : 1 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          className={`w-full aspect-square object-cover transition-transform duration-500 ease-out ${
+            isHovered ? "scale-105" : "scale-100"
+          }`}
         />
         
         {/* Quick View Overlay */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isHovered ? 1 : 0 }}
-          transition={{ duration: 0.3 }}
-          className="absolute inset-0 bg-foreground/20 backdrop-blur-[2px] flex flex-col items-center justify-center gap-3"
+        <div
+          className={`absolute inset-0 bg-foreground/20 backdrop-blur-[2px] flex flex-col items-center justify-center gap-3 transition-opacity duration-300 ${
+            isHovered ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
         >
-          <motion.button 
-            className="btn-primary flex items-center gap-2"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: isHovered ? 0 : 20, opacity: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.3, delay: 0.1 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <button 
+            className={`btn-primary flex items-center gap-2 transform transition-all duration-300 ${
+              isHovered ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+            }`}
+            style={{ transitionDelay: "50ms" }}
           >
             <Eye size={16} />
             Quick View
-          </motion.button>
-          <motion.button
+          </button>
+          <button
             onClick={handleAddToCart}
-            className="btn-gold flex items-center gap-2"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: isHovered ? 0 : 20, opacity: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.3, delay: 0.2 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className={`btn-gold flex items-center gap-2 transform transition-all duration-300 ${
+              isHovered ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+            }`}
+            style={{ transitionDelay: "100ms" }}
           >
             <ShoppingBag size={16} />
             Add to Cart
-          </motion.button>
-        </motion.div>
+          </button>
+        </div>
 
         {/* Quick Add Button (visible on hover) */}
-        <motion.button
-          initial={{ opacity: 0, scale: 0.8, y: 10 }}
-          animate={{ 
-            opacity: isHovered ? 1 : 0, 
-            scale: isHovered ? 1 : 0.8,
-            y: isHovered ? 0 : 10 
-          }}
-          transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
+        <button
           onClick={handleAddToCart}
-          whileHover={{ scale: 1.15, rotate: 90 }}
-          whileTap={{ scale: 0.9 }}
-          className="absolute bottom-4 right-4 p-2.5 bg-gold text-white rounded-full shadow-gold hover:bg-gold-dark transition-colors"
+          className={`absolute bottom-4 right-4 p-2.5 bg-gold text-white rounded-full shadow-gold hover:bg-gold-dark hover:scale-110 active:scale-95 transition-all duration-300 ${
+            isHovered ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-2 scale-90"
+          }`}
         >
           <Plus size={18} />
-        </motion.button>
+        </button>
       </div>
 
       {/* Product Info */}
@@ -122,19 +109,20 @@ const ProductCard = ({ id, name, price, image, category, colors = [], sizes = []
         {/* Size Selector */}
         <div className="flex gap-1.5 flex-wrap">
           {sizes.map((size) => (
-            <motion.button
+            <button
               key={size}
-              onClick={() => setSelectedSize(size)}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className={`px-2 py-1 text-xs border transition-all duration-200 ${
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedSize(size);
+              }}
+              className={`px-2 py-1 text-xs border transition-all duration-200 hover:scale-105 active:scale-95 ${
                 selectedSize === size
                   ? "border-gold bg-gold text-white"
                   : "border-border hover:border-gold text-muted-foreground hover:text-foreground"
               }`}
             >
               {size}
-            </motion.button>
+            </button>
           ))}
         </div>
       </div>
