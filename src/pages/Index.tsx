@@ -4,6 +4,7 @@ import { ArrowRight, Sparkles, ChevronDown } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Newsletter from "@/components/Newsletter";
+import ShootingStars from "@/components/ShootingStars";
 import heroImage from "@/assets/hero-image.jpg";
 import { collections } from "@/data/products";
 
@@ -39,6 +40,9 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Shooting Stars */}
+        <ShootingStars />
+        
         <motion.div 
           className="absolute inset-0"
           style={{ scale: heroScale }}
