@@ -140,10 +140,14 @@ const CartDrawer = () => {
                 </p>
 
                 {/* Checkout Button */}
-                <button className="btn-gold w-full justify-center">
+                <Link
+                  to="/checkout"
+                  onClick={() => setIsCartOpen(false)}
+                  className="btn-gold w-full justify-center"
+                >
                   Checkout
                   <ArrowRight size={16} className="ml-2" />
-                </button>
+                </Link>
 
                 {/* Continue Shopping */}
                 <Link
