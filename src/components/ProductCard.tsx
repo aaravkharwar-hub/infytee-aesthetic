@@ -29,17 +29,20 @@ const ProductCard = ({ id, name, price, image, category, colors = [], sizes = []
       className="card-product group"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      whileHover={{ y: -8 }}
     >
       {/* Image Container */}
       <div className="relative aspect-square overflow-hidden bg-secondary">
-        <img
+        <motion.img
           src={image}
           alt={name}
-          className="card-product-image"
+          className="w-full aspect-square object-cover"
+          animate={{ scale: isHovered ? 1.08 : 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         />
         
         {/* Quick View Overlay */}
@@ -47,27 +50,45 @@ const ProductCard = ({ id, name, price, image, category, colors = [], sizes = []
           initial={{ opacity: 0 }}
           animate={{ opacity: isHovered ? 1 : 0 }}
           transition={{ duration: 0.3 }}
-          className="absolute inset-0 bg-foreground/10 flex flex-col items-center justify-center gap-3"
+          className="absolute inset-0 bg-foreground/20 backdrop-blur-[2px] flex flex-col items-center justify-center gap-3"
         >
-          <button className="btn-primary flex items-center gap-2">
+          <motion.button 
+            className="btn-primary flex items-center gap-2"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: isHovered ? 0 : 20, opacity: isHovered ? 1 : 0 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             <Eye size={16} />
             Quick View
-          </button>
-          <button
+          </motion.button>
+          <motion.button
             onClick={handleAddToCart}
             className="btn-gold flex items-center gap-2"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: isHovered ? 0 : 20, opacity: isHovered ? 1 : 0 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             <ShoppingBag size={16} />
             Add to Cart
-          </button>
+          </motion.button>
         </motion.div>
 
         {/* Quick Add Button (visible on hover) */}
         <motion.button
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 10 }}
-          transition={{ duration: 0.2 }}
+          initial={{ opacity: 0, scale: 0.8, y: 10 }}
+          animate={{ 
+            opacity: isHovered ? 1 : 0, 
+            scale: isHovered ? 1 : 0.8,
+            y: isHovered ? 0 : 10 
+          }}
+          transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
           onClick={handleAddToCart}
+          whileHover={{ scale: 1.15, rotate: 90 }}
+          whileTap={{ scale: 0.9 }}
           className="absolute bottom-4 right-4 p-2.5 bg-gold text-white rounded-full shadow-gold hover:bg-gold-dark transition-colors"
         >
           <Plus size={18} />
@@ -101,9 +122,11 @@ const ProductCard = ({ id, name, price, image, category, colors = [], sizes = []
         {/* Size Selector */}
         <div className="flex gap-1.5 flex-wrap">
           {sizes.map((size) => (
-            <button
+            <motion.button
               key={size}
               onClick={() => setSelectedSize(size)}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               className={`px-2 py-1 text-xs border transition-all duration-200 ${
                 selectedSize === size
                   ? "border-gold bg-gold text-white"
@@ -111,7 +134,7 @@ const ProductCard = ({ id, name, price, image, category, colors = [], sizes = []
               }`}
             >
               {size}
-            </button>
+            </motion.button>
           ))}
         </div>
       </div>
