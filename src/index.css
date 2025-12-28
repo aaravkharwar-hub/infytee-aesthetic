@@ -25,7 +25,7 @@
     --muted: 0 0% 90%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 43 96% 56%;
+    --accent: 40 85% 50%;
     --accent-foreground: 0 0% 8%;
 
     --destructive: 0 84% 60%;
@@ -33,15 +33,21 @@
 
     --border: 0 0% 88%;
     --input: 0 0% 88%;
-    --ring: 43 96% 56%;
+    --ring: 40 85% 50%;
 
     --radius: 0.5rem;
 
-    /* Golden Accent Colors */
-    --lime: 43 96% 56%;
-    --lime-light: 43 96% 65%;
-    --lime-dark: 43 96% 45%;
-    --lime-muted: 43 60% 70%;
+    /* Rich Golden Accent Colors */
+    --gold: 40 85% 50%;
+    --gold-light: 45 90% 60%;
+    --gold-dark: 35 80% 40%;
+    --gold-muted: 40 50% 65%;
+    
+    /* Legacy lime variables mapped to gold for compatibility */
+    --lime: 40 85% 50%;
+    --lime-light: 45 90% 60%;
+    --lime-dark: 35 80% 40%;
+    --lime-muted: 40 50% 65%;
 
     /* Custom Brand Colors */
     --stone: 0 0% 60%;
@@ -52,7 +58,8 @@
     --shadow-soft: 0 4px 20px -4px hsl(0 0% 8% / 0.06);
     --shadow-medium: 0 8px 30px -6px hsl(0 0% 8% / 0.1);
     --shadow-hover: 0 12px 40px -8px hsl(0 0% 8% / 0.12);
-    --shadow-lime: 0 4px 20px -4px hsl(43 96% 56% / 0.35);
+    --shadow-gold: 0 4px 20px -4px hsl(40 85% 50% / 0.4);
+    --shadow-lime: 0 4px 20px -4px hsl(40 85% 50% / 0.4);
 
     /* Transitions */
     --transition-smooth: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -78,18 +85,24 @@
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 60%;
 
-    --accent: 43 96% 58%;
+    --accent: 40 85% 55%;
     --accent-foreground: 0 0% 4%;
 
     --border: 0 0% 15%;
     --input: 0 0% 15%;
-    --ring: 43 96% 58%;
+    --ring: 40 85% 55%;
 
-    /* Golden accents in dark mode */
-    --lime: 43 96% 58%;
-    --lime-light: 43 96% 68%;
-    --lime-dark: 43 96% 48%;
-    --lime-muted: 43 60% 50%;
+    /* Rich Golden accents in dark mode */
+    --gold: 40 85% 55%;
+    --gold-light: 45 90% 65%;
+    --gold-dark: 35 80% 45%;
+    --gold-muted: 40 50% 55%;
+    
+    /* Legacy lime variables mapped to gold for compatibility */
+    --lime: 40 85% 55%;
+    --lime-light: 45 90% 65%;
+    --lime-dark: 35 80% 45%;
+    --lime-muted: 40 50% 55%;
   }
 }
 
@@ -315,10 +328,10 @@
 
 @keyframes pulseLime {
   0%, 100% {
-    box-shadow: 0 0 0 0 hsl(43 96% 56% / 0.4);
+    box-shadow: 0 0 0 0 hsl(40 85% 50% / 0.4);
   }
   50% {
-    box-shadow: 0 0 20px 10px hsl(43 96% 56% / 0);
+    box-shadow: 0 0 20px 10px hsl(40 85% 50% / 0);
   }
 }
 
