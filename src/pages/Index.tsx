@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Sparkles, ChevronDown } from "lucide-react";
+import { ArrowRight, ShoppingBag } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Newsletter from "@/components/Newsletter";
-import ShootingStars from "@/components/ShootingStars";
 import heroImage from "@/assets/hero-image.jpg";
 import { collections } from "@/data/products";
 
@@ -32,91 +31,114 @@ const scaleIn = {
 const Index = () => {
   const { scrollYProgress } = useScroll();
   const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
-  const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 1.1]);
+  const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 1.05]);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-hidden">
       <Header />
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Shooting Stars */}
-        <ShootingStars />
-        
-        <motion.div 
-          className="absolute inset-0"
-          style={{ scale: heroScale }}
-        >
-          <img
-            src={heroImage}
-            alt="Infytee streetwear"
-            className="w-full h-full object-cover"
+      {/* Hero Section - Lando Norris Style */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Organic blob shapes background */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Large organic shapes */}
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            className="absolute top-[10%] left-[5%] w-[400px] h-[350px] blob-muted"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-transparent" />
-        </motion.div>
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.5, delay: 0.2, ease: "easeOut" }}
+            className="absolute top-[20%] right-[10%] w-[500px] h-[400px] blob-muted"
+          />
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.5, delay: 0.4, ease: "easeOut" }}
+            className="absolute bottom-[15%] left-[20%] w-[450px] h-[380px] blob-muted"
+          />
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.5, delay: 0.3, ease: "easeOut" }}
+            className="absolute bottom-[20%] right-[15%] w-[350px] h-[300px] blob-muted"
+          />
+          
+          {/* Track-like curved lines */}
+          <svg className="absolute inset-0 w-full h-full opacity-[0.08]" viewBox="0 0 1440 900" preserveAspectRatio="none">
+            <path
+              d="M-50,200 Q200,100 400,200 T800,180 T1200,250 T1500,200"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            />
+            <path
+              d="M-50,400 Q300,300 500,400 T900,380 T1300,450 T1500,400"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            />
+            <path
+              d="M-50,600 Q200,500 400,600 T800,580 T1200,650 T1500,600"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            />
+          </svg>
+        </div>
 
+        {/* Main Content */}
         <div className="container-custom relative z-10 pt-20">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="max-w-xl"
+            className="text-center max-w-5xl mx-auto"
           >
-            <motion.div
-              variants={fadeInUp}
-              transition={{ duration: 0.6 }}
-              className="flex items-center gap-2 mb-6"
-            >
-              <motion.div
-                animate={{ rotate: [0, 15, -15, 0] }}
-                transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-              >
-                <Sparkles size={16} className="text-gold" />
-              </motion.div>
-              <p className="text-sm uppercase tracking-[0.2em] text-gold font-medium">
-                New Collection 2024
-              </p>
-            </motion.div>
+            {/* Brand name - large display */}
             <motion.h1 
               variants={fadeInUp}
               transition={{ duration: 0.8 }}
-              className="text-display mb-6"
+              className="text-display mb-4"
             >
-              Wear Your<br />
-              <motion.span 
-                className="text-gold inline-block"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                Identity
-              </motion.span>
+              INFYTEE
             </motion.h1>
+            
+            {/* Subtitle */}
             <motion.p 
               variants={fadeInUp}
-              transition={{ duration: 0.8 }}
-              className="text-lg text-muted-foreground mb-10 max-w-md leading-relaxed"
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="text-headline text-muted-foreground mb-8"
             >
-              Premium streetwear essentials designed for the modern creative. 
-              Quality basics that speak for themselves.
+              PREMIUM STREETWEAR
             </motion.p>
+
+            {/* Description */}
+            <motion.p 
+              variants={fadeInUp}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-lg text-muted-foreground mb-12 max-w-md mx-auto leading-relaxed font-light"
+            >
+              Quality basics designed for the modern creative. 
+              Wear your identity.
+            </motion.p>
+
+            {/* CTA Buttons */}
             <motion.div 
               variants={fadeInUp}
-              transition={{ duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4"
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link to="/shop" className="btn-gold group">
-                  Shop Collection
-                  <motion.span
-                    className="ml-2 inline-block"
-                    animate={{ x: [0, 4, 0] }}
-                    transition={{ repeat: Infinity, duration: 1.5 }}
-                  >
-                    <ArrowRight size={16} />
-                  </motion.span>
+                <Link to="/shop" className="btn-lime group">
+                  <ShoppingBag size={18} className="mr-2" />
+                  Store
                 </Link>
               </motion.div>
               <motion.div
@@ -131,50 +153,63 @@ const Index = () => {
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Bottom left info card - like Lando's "Next Race" card */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.8, duration: 0.6 }}
+          className="absolute bottom-8 left-8 hidden md:block"
+        >
+          <div className="border border-border/50 rounded-lg p-4 bg-card/50 backdrop-blur-sm">
+            <p className="text-xs text-muted-foreground uppercase tracking-widest mb-2">New Drop</p>
+            <p className="font-display text-lg">COLLECTION '24</p>
+            <div className="divider-lime my-3" />
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-muted-foreground">INFYTEE</span>
+              <span className="text-xs text-muted-foreground">SINCE 2024</span>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Scroll hint */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.6 }}
           style={{ opacity: heroOpacity }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          className="absolute bottom-8 right-8 hidden md:flex items-center gap-2"
         >
           <span className="text-xs text-muted-foreground uppercase tracking-widest">Scroll</span>
           <motion.div
-            animate={{ y: [0, 8, 0] }}
+            animate={{ y: [0, 5, 0] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-            className="text-gold"
           >
-            <ChevronDown size={20} />
+            <ArrowRight size={14} className="rotate-90 text-lime" />
           </motion.div>
         </motion.div>
       </section>
 
-      {/* Gold Divider */}
-      <div className="py-8">
-        <div className="container-custom">
-          <div className="divider-gold" />
-        </div>
-      </div>
-
       {/* Collections Grid */}
-      <section className="py-16 md:py-24">
-        <div className="container-custom">
+      <section className="py-24 md:py-32 relative">
+        {/* Background blob */}
+        <div className="absolute top-0 right-0 w-[600px] h-[500px] blob-muted opacity-50" />
+        
+        <div className="container-custom relative z-10">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="text-center mb-16"
+            className="mb-16"
           >
             <motion.p 
               variants={fadeInUp}
-              className="text-sm uppercase tracking-[0.2em] text-gold font-medium mb-4"
+              className="text-subhead text-lime mb-4"
             >
-              Explore
+              EXPLORE
             </motion.p>
             <motion.h2 variants={fadeInUp} className="text-headline">
-              Our Collections
+              OUR COLLECTIONS
             </motion.h2>
           </motion.div>
 
@@ -183,7 +218,7 @@ const Index = () => {
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={staggerContainer}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {collections.map((collection) => (
               <motion.div
@@ -194,12 +229,12 @@ const Index = () => {
               >
                 <Link
                   to={`/shop?collection=${encodeURIComponent(collection.name)}`}
-                  className="block p-8 bg-card border border-border/50 hover:border-gold/50 transition-all duration-300 group shimmer"
+                  className="block p-8 bg-card border border-border/50 hover:border-lime/50 transition-all duration-300 group rounded-2xl"
                 >
-                  <h3 className="font-display text-lg font-semibold mb-2 group-hover:text-gold transition-colors">
-                    {collection.name}
+                  <h3 className="font-display text-2xl mb-2 group-hover:text-lime transition-colors">
+                    {collection.name.toUpperCase()}
                   </h3>
-                  <p className="text-sm text-muted-foreground mb-4">
+                  <p className="text-sm text-muted-foreground mb-4 font-light">
                     {collection.description}
                   </p>
                   <div className="flex items-center justify-between">
@@ -209,7 +244,7 @@ const Index = () => {
                     <motion.span
                       initial={{ x: -10, opacity: 0 }}
                       whileHover={{ x: 0, opacity: 1 }}
-                      className="text-gold"
+                      className="text-lime"
                     >
                       <ArrowRight size={14} />
                     </motion.span>
@@ -231,31 +266,47 @@ const Index = () => {
               whileTap={{ scale: 0.95 }}
               className="inline-block"
             >
-              <Link to="/shop" className="btn-outline-gold group">
+              <Link to="/shop" className="btn-outline-lime group">
                 Shop All Products
-                <motion.span
-                  className="ml-2 inline-block"
-                  initial={{ x: 0 }}
-                  whileHover={{ x: 5 }}
-                >
-                  <ArrowRight size={16} />
-                </motion.span>
+                <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* Gold Divider */}
-      <div className="py-4">
-        <div className="container-custom">
-          <div className="divider-gold" />
+      {/* Quote/Message Section - Like Lando's "Message from Lando" */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-[20%] left-[10%] w-[300px] h-[250px] blob-muted" />
+          <div className="absolute bottom-[10%] right-[5%] w-[400px] h-[350px] blob-muted" />
         </div>
-      </div>
+        
+        <div className="container-custom relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto text-center"
+          >
+            <p className="text-subhead text-lime mb-8">OUR PHILOSOPHY</p>
+            <blockquote className="text-2xl sm:text-3xl md:text-4xl font-display leading-tight mb-8">
+              <span className="text-lime">"</span>
+              REDEFINING LIMITS, CRAFTING QUALITY, BRINGING STYLE IN ALL WAYS. DEFINING A LEGACY IN STREETWEAR.
+              <span className="text-lime">"</span>
+            </blockquote>
+            <div className="divider-lime max-w-24 mx-auto mb-6" />
+            <p className="text-muted-foreground font-light">INFYTEE, 2024</p>
+          </motion.div>
+        </div>
+      </section>
 
       {/* About Preview */}
-      <section className="py-16 md:py-24 overflow-hidden">
-        <div className="container-custom">
+      <section className="py-24 md:py-32 overflow-hidden relative">
+        <div className="absolute top-0 left-0 w-[500px] h-[400px] blob-muted opacity-30" />
+        
+        <div className="container-custom relative z-10">
           <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
             <motion.div
               initial="hidden"
@@ -265,23 +316,22 @@ const Index = () => {
             >
               <motion.p 
                 variants={fadeInUp}
-                className="text-sm uppercase tracking-[0.2em] text-gold font-medium mb-4"
+                className="text-subhead text-lime mb-4"
               >
-                Our Story
+                OUR STORY
               </motion.p>
               <motion.h2 variants={fadeInUp} className="text-headline mb-6">
-                Built for Creatives,<br />By Creatives
+                BUILT FOR CREATIVES,<br />BY CREATIVES
               </motion.h2>
-              <motion.div variants={fadeInUp} className="divider-gold max-w-24 mb-6" />
-              <motion.p variants={fadeInUp} className="text-muted-foreground mb-6 leading-relaxed">
+              <motion.div variants={fadeInUp} className="divider-lime max-w-24 mb-6" />
+              <motion.p variants={fadeInUp} className="text-muted-foreground mb-6 leading-relaxed font-light">
                 Infytee was born from a simple idea: premium basics shouldn't 
                 break the bank. We blend streetwear aesthetics with timeless 
-                minimalism, creating pieces that let your personality shine.
+                minimalism.
               </motion.p>
-              <motion.p variants={fadeInUp} className="text-muted-foreground mb-8 leading-relaxed">
+              <motion.p variants={fadeInUp} className="text-muted-foreground mb-8 leading-relaxed font-light">
                 Every piece is crafted with premium fabrics and attention to 
-                detail, because we believe what you wear should feel as good 
-                as it looks.
+                detail, because what you wear should feel as good as it looks.
               </motion.p>
               <motion.div variants={fadeInUp}>
                 <motion.div
@@ -289,7 +339,7 @@ const Index = () => {
                   whileTap={{ scale: 0.95 }}
                   className="inline-block"
                 >
-                  <Link to="/about" className="btn-outline-gold">
+                  <Link to="/about" className="btn-outline-lime">
                     Learn More
                   </Link>
                 </motion.div>
@@ -297,14 +347,14 @@ const Index = () => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 100, rotate: 3 }}
-              whileInView={{ opacity: 1, x: 0, rotate: 0 }}
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="relative"
             >
               <motion.div 
-                className="aspect-[4/5] bg-secondary overflow-hidden"
+                className="aspect-[4/5] bg-secondary overflow-hidden rounded-3xl"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.4 }}
               >
@@ -321,11 +371,11 @@ const Index = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                whileHover={{ scale: 1.1, rotate: -3 }}
-                className="absolute -bottom-6 -left-6 bg-card p-6 border border-gold/30 cursor-pointer"
+                whileHover={{ scale: 1.1 }}
+                className="absolute -bottom-6 -left-6 bg-lime text-charcoal p-6 rounded-xl cursor-pointer"
               >
-                <p className="text-4xl font-display font-bold text-gold">2024</p>
-                <p className="text-sm text-muted-foreground">Est.</p>
+                <p className="text-4xl font-display font-bold">2024</p>
+                <p className="text-sm opacity-70">Est.</p>
               </motion.div>
             </motion.div>
           </div>
