@@ -18,49 +18,61 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md">
       <nav className="container-custom">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link 
             to="/" 
-            className="font-display text-xl md:text-2xl font-bold tracking-tight hover:text-gold transition-colors"
+            className="font-display text-2xl md:text-3xl tracking-wider hover:text-lime transition-colors"
           >
             INFYTEE
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-10">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`text-sm tracking-wide transition-all duration-300 link-gold ${
-                  isActive(link.path) ? "text-gold" : ""
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
+          {/* Center Logo Icon - like LN4 */}
+          <Link 
+            to="/" 
+            className="absolute left-1/2 -translate-x-1/2 font-display text-3xl md:text-4xl tracking-wider hidden md:block hover:text-lime transition-colors"
+          >
+            ∞
+          </Link>
 
           {/* Right Side */}
-          <div className="flex items-center gap-4">
-            <button 
+          <div className="flex items-center gap-2">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-6 mr-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`text-sm tracking-wide transition-all duration-300 link-lime uppercase ${
+                    isActive(link.path) ? "text-lime" : ""
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+
+            {/* Store Button - Lime like Lando's */}
+            <motion.button 
               onClick={() => setIsCartOpen(true)}
-              className="relative p-2 transition-all duration-300 hover:text-gold"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="relative flex items-center gap-2 px-4 py-2 bg-lime text-charcoal rounded-lg font-semibold text-sm tracking-wide uppercase transition-all hover:bg-lime-light"
             >
-              <ShoppingBag size={20} strokeWidth={1.5} />
+              <ShoppingBag size={16} />
+              <span className="hidden sm:inline">Store</span>
               {totalItems > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-gold text-white text-[10px] font-medium rounded-full flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 w-5 h-5 bg-charcoal text-lime text-[10px] font-bold rounded-full flex items-center justify-center">
                   {totalItems}
                 </span>
               )}
-            </button>
+            </motion.button>
 
             {/* Mobile Menu Toggle */}
             <button
-              className="md:hidden p-2 hover:text-gold transition-colors"
+              className="md:hidden p-2 ml-2 hover:text-lime transition-colors border border-border rounded-lg"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -84,8 +96,8 @@ const Header = () => {
                     key={link.path}
                     to={link.path}
                     onClick={() => setIsMenuOpen(false)}
-                    className={`block text-lg font-display tracking-wide hover:text-gold transition-colors ${
-                      isActive(link.path) ? "text-gold" : ""
+                    className={`block text-2xl font-display tracking-wide hover:text-lime transition-colors uppercase ${
+                      isActive(link.path) ? "text-lime" : ""
                     }`}
                   >
                     {link.name}
