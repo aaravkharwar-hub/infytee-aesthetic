@@ -4,6 +4,7 @@ import { ArrowRight, ShoppingBag } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Newsletter from "@/components/Newsletter";
+import ScrollingMarquee from "@/components/ScrollingMarquee";
 import heroImage from "@/assets/hero-image.jpg";
 import { collections } from "@/data/products";
 
@@ -188,6 +189,9 @@ const Index = () => {
           </motion.div>
         </motion.div>
       </section>
+
+      {/* Scrolling Marquee */}
+      <ScrollingMarquee />
 
       {/* Collections Grid */}
       <section className="py-24 md:py-32 relative">
