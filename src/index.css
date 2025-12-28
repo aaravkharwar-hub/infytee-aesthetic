@@ -25,7 +25,7 @@
     --muted: 0 0% 90%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 75 85% 50%;
+    --accent: 43 96% 56%;
     --accent-foreground: 0 0% 8%;
 
     --destructive: 0 84% 60%;
@@ -33,15 +33,15 @@
 
     --border: 0 0% 88%;
     --input: 0 0% 88%;
-    --ring: 75 85% 50%;
+    --ring: 43 96% 56%;
 
     --radius: 0.5rem;
 
-    /* Lime Accent Colors - Neon Green like LandoNorris.com */
-    --lime: 75 85% 50%;
-    --lime-light: 75 85% 60%;
-    --lime-dark: 75 85% 40%;
-    --lime-muted: 75 50% 70%;
+    /* Golden Accent Colors */
+    --lime: 43 96% 56%;
+    --lime-light: 43 96% 65%;
+    --lime-dark: 43 96% 45%;
+    --lime-muted: 43 60% 70%;
 
     /* Custom Brand Colors */
     --stone: 0 0% 60%;
@@ -52,7 +52,7 @@
     --shadow-soft: 0 4px 20px -4px hsl(0 0% 8% / 0.06);
     --shadow-medium: 0 8px 30px -6px hsl(0 0% 8% / 0.1);
     --shadow-hover: 0 12px 40px -8px hsl(0 0% 8% / 0.12);
-    --shadow-lime: 0 4px 20px -4px hsl(75 85% 50% / 0.35);
+    --shadow-lime: 0 4px 20px -4px hsl(43 96% 56% / 0.35);
 
     /* Transitions */
     --transition-smooth: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -78,18 +78,18 @@
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 60%;
 
-    --accent: 75 85% 55%;
+    --accent: 43 96% 58%;
     --accent-foreground: 0 0% 4%;
 
     --border: 0 0% 15%;
     --input: 0 0% 15%;
-    --ring: 75 85% 55%;
+    --ring: 43 96% 58%;
 
-    /* Lime accents in dark mode */
-    --lime: 75 85% 55%;
-    --lime-light: 75 85% 65%;
-    --lime-dark: 75 85% 45%;
-    --lime-muted: 75 50% 45%;
+    /* Golden accents in dark mode */
+    --lime: 43 96% 58%;
+    --lime-light: 43 96% 68%;
+    --lime-dark: 43 96% 48%;
+    --lime-muted: 43 60% 50%;
   }
 }
 
@@ -315,10 +315,10 @@
 
 @keyframes pulseLime {
   0%, 100% {
-    box-shadow: 0 0 0 0 hsl(75 85% 50% / 0.4);
+    box-shadow: 0 0 0 0 hsl(43 96% 56% / 0.4);
   }
   50% {
-    box-shadow: 0 0 20px 10px hsl(75 85% 50% / 0);
+    box-shadow: 0 0 20px 10px hsl(43 96% 56% / 0);
   }
 }
 
