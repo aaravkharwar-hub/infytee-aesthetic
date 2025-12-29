@@ -200,6 +200,22 @@ const Index = () => {
         {/* Shooting Stars Animation */}
         <ShootingStars />
         
+        {/* Angled Rotating Belt */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div 
+            className="absolute w-[200%] h-24 md:h-32 -rotate-12 overflow-hidden"
+            style={{ top: '50%', transform: 'translateY(-50%) rotate(-12deg)' }}
+          >
+            <div className="flex animate-marquee-reverse whitespace-nowrap">
+              {[...Array(8)].map((_, i) => (
+                <span key={i} className="text-6xl md:text-8xl font-black text-gold/10 mx-8 tracking-widest">
+                  INFYTEE • STOP TIME • INFYTEE • STOP TIME •
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+        
         {/* Grid pattern background */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{

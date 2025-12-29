@@ -34,16 +34,16 @@ const ShootingStars = () => {
     };
 
     // Create initial stars
-    for (let i = 0; i < 2; i++) {
-      setTimeout(() => createStar(), i * 800);
+    for (let i = 0; i < 5; i++) {
+      setTimeout(() => createStar(), i * 300);
     }
 
-    // Create new stars periodically
+    // Create new stars periodically - much more frequent
     const interval = setInterval(() => {
-      if (Math.random() > 0.4) {
+      if (Math.random() > 0.2) {
         createStar();
       }
-    }, 1500);
+    }, 400);
 
     return () => clearInterval(interval);
   }, []);
