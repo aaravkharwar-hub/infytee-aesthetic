@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Newsletter from "@/components/Newsletter";
 import ScrollingMarquee from "@/components/ScrollingMarquee";
 import heroImage from "@/assets/hero-image.jpg";
+import infyteeHero from "@/assets/infytee-hero.png";
 import { collections } from "@/data/products";
 
 const fadeInUp = {
@@ -192,6 +193,33 @@ const Index = () => {
 
       {/* Scrolling Marquee */}
       <ScrollingMarquee />
+
+      {/* Brand Hero Image Section */}
+      <section className="py-16 md:py-24 bg-charcoal relative overflow-hidden">
+        {/* Grid pattern background */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'linear-gradient(hsl(var(--gold) / 0.3) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--gold) / 0.3) 1px, transparent 1px)',
+            backgroundSize: '60px 60px'
+          }} />
+        </div>
+        
+        <div className="container-custom relative z-10">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex justify-center"
+          >
+            <img 
+              src={infyteeHero} 
+              alt="INFYTEE - Stop Time" 
+              className="max-w-full h-auto max-h-[80vh] object-contain"
+            />
+          </motion.div>
+        </div>
+      </section>
 
       {/* Collections Grid */}
       <section className="py-24 md:py-32 relative">

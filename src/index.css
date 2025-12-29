@@ -25,7 +25,7 @@
     --muted: 0 0% 90%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 40 85% 50%;
+    --accent: 38 92% 45%;
     --accent-foreground: 0 0% 8%;
 
     --destructive: 0 84% 60%;
@@ -33,21 +33,21 @@
 
     --border: 0 0% 88%;
     --input: 0 0% 88%;
-    --ring: 40 85% 50%;
+    --ring: 38 92% 45%;
 
     --radius: 0.5rem;
 
-    /* Rich Golden Accent Colors */
-    --gold: 40 85% 50%;
-    --gold-light: 45 90% 60%;
-    --gold-dark: 35 80% 40%;
-    --gold-muted: 40 50% 65%;
+    /* Rich Golden Accent Colors - True Gold */
+    --gold: 38 92% 45%;
+    --gold-light: 42 90% 55%;
+    --gold-dark: 32 85% 35%;
+    --gold-muted: 38 60% 55%;
     
     /* Legacy lime variables mapped to gold for compatibility */
-    --lime: 40 85% 50%;
-    --lime-light: 45 90% 60%;
-    --lime-dark: 35 80% 40%;
-    --lime-muted: 40 50% 65%;
+    --lime: 38 92% 45%;
+    --lime-light: 42 90% 55%;
+    --lime-dark: 32 85% 35%;
+    --lime-muted: 38 60% 55%;
 
     /* Custom Brand Colors */
     --stone: 0 0% 60%;
@@ -85,23 +85,23 @@
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 60%;
 
-    --accent: 40 85% 55%;
+    --accent: 38 92% 50%;
     --accent-foreground: 0 0% 4%;
 
     --border: 0 0% 15%;
     --input: 0 0% 15%;
-    --ring: 40 85% 55%;
+    --ring: 38 92% 50%;
 
-    /* Rich Golden accents in dark mode */
-    --gold: 40 85% 55%;
-    --gold-light: 45 90% 65%;
-    --gold-dark: 35 80% 45%;
-    --gold-muted: 40 50% 55%;
+    /* Rich Golden accents in dark mode - True Gold */
+    --gold: 38 92% 50%;
+    --gold-light: 42 90% 60%;
+    --gold-dark: 32 85% 40%;
+    --gold-muted: 38 60% 50%;
     
     /* Legacy lime variables mapped to gold for compatibility */
-    --lime: 40 85% 55%;
-    --lime-light: 45 90% 65%;
-    --lime-dark: 35 80% 45%;
+    --lime: 38 92% 50%;
+    --lime-light: 42 90% 60%;
+    --lime-dark: 32 85% 40%;
     --lime-muted: 40 50% 55%;
   }
 }
