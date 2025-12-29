@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ShoppingBag } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "@/contexts/CartContext";
 
@@ -61,7 +61,7 @@ const Header = () => {
               whileTap={{ scale: 0.95 }}
               className="relative flex items-center gap-2 px-4 py-2 bg-lime text-charcoal rounded-lg font-semibold text-sm tracking-wide uppercase transition-all hover:bg-lime-light"
             >
-              <ShoppingBag size={16} />
+              
               <span className="hidden sm:inline">Store</span>
               {totalItems > 0 && (
                 <span className="absolute -top-1 -right-1 w-5 h-5 bg-charcoal text-lime text-[10px] font-bold rounded-full flex items-center justify-center">

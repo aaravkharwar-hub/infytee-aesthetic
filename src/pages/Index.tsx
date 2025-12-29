@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, ShoppingBag } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Newsletter from "@/components/Newsletter";
@@ -140,7 +140,6 @@ const Index = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link to="/shop" className="btn-lime group">
-                  <ShoppingBag size={18} className="mr-2" />
                   Store
                 </Link>
               </motion.div>
