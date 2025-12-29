@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Newsletter from "@/components/Newsletter";
 import ScrollingMarquee from "@/components/ScrollingMarquee";
+import ShootingStars from "@/components/ShootingStars";
 import heroImage from "@/assets/hero-image.jpg";
 import infyteeHero from "@/assets/infytee-hero.png";
 import { collections } from "@/data/products";
@@ -196,6 +197,9 @@ const Index = () => {
 
       {/* Brand Hero Image Section */}
       <section className="py-16 md:py-24 bg-charcoal relative overflow-hidden">
+        {/* Shooting Stars Animation */}
+        <ShootingStars />
+        
         {/* Grid pattern background */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
