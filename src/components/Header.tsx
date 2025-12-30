@@ -29,13 +29,6 @@ const Header = () => {
             INFYTEE
           </Link>
 
-          {/* Center Logo Icon - like LN4 */}
-          <Link 
-            to="/" 
-            className="absolute left-1/2 -translate-x-1/2 font-display text-3xl md:text-4xl tracking-wider hidden md:block hover:text-lime transition-colors"
-          >
-            ∞
-          </Link>
 
           {/* Right Side */}
           <div className="flex items-center gap-2">
